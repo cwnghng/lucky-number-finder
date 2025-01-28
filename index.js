@@ -21,7 +21,13 @@ async function openPageAndFindMatch(regex, driver, until, By) {
   for (const number of numbersList) {
     await number.click()
     text = await number.getText()
-    if (text === '87984017' || text === '89397860' || text === '80937532') {
+
+    const args = process.argv.slice(2)
+    const isTest = args.includes('--test') && args[args.indexOf('--test') + 1] === 'true'
+    if (
+      isTest &&
+      text.startsWith('8')
+    ) {
       return true;
     }
     // console.log('Checking:', text)
