@@ -99,6 +99,10 @@ async function start() {
   }
 
   console.log('Number found')
+
+  while (true) {
+    await sleep(5000);
+  }
 }
 
 start()
