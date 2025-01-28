@@ -21,6 +21,9 @@ async function openPageAndFindMatch(regex, driver, until, By) {
   for (const number of numbersList) {
     await number.click()
     text = await number.getText()
+    if (text === '87984017' || text === '89397860' || text === '80937532') {
+      return true;
+    }
     // console.log('Checking:', text)
     const match = regex.test(text)
 
